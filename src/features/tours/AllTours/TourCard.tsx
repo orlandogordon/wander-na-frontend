@@ -38,7 +38,7 @@ const TourCard = ({ tourObj }: Props) => {
             className="absolute h-full w-full bg-tour-card-overlay"
           ></div>
           <img
-            src={`http://localhost:3500/img/tours/${tourObj.imageCover}`}
+            src={`https://wander-api-bl56.onrender.com/img/tours/${tourObj.imageCover}`}
             className="h-full w-full object-cover"
             alt="pic-from-tour"
             crossOrigin="anonymous"

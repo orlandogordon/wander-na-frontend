@@ -176,7 +176,7 @@ const UpdateUserInfo = ({ user }: Props) => {
               <div className="relative mb-8 h-24 rounded">
                 <div className="flex h-20 w-fit flex-row items-center justify-center rounded-full bg-cover bg-center bg-no-repeat shadow">
                   <img
-                    src={`http://localhost:3500/img/users/${
+                    src={`https://wander-api-bl56.onrender.com/img/users/${
                       user.photo ? user.photo : "default.png"
                     }`}
                     alt="avatar"
