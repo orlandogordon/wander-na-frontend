@@ -115,7 +115,7 @@ const Tour = (props: Props) => {
       <div className="container mx-auto mt-12 px-5 py-24">
         <div className="md:full mx-auto flex flex-wrap">
           <img
-            src={`http://localhost:3500/img/tours/${tour.images[0]}`}
+            src={`https://wander-api-bl56.onrender.com/img/tours/${tour.images[0]}`}
             className=" w-full  rounded object-scale-down object-center md:w-1/2 lg:border lg:border-gray-200 lg:object-cover"
             alt="pic-from-tour"
             crossOrigin="anonymous"

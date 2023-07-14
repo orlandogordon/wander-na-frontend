@@ -38,7 +38,7 @@ const Review = ({ reviewData }: Props) => {
         <div className="mt-6 flex flex-row items-center justify-start space-x-2.5">
           <div>
             <img
-              src={`http://localhost:3500/img/users/${reviewData.user.photo}`}
+              src={`https://wander-api-bl56.onrender.com/img/users/${reviewData.user.photo}`}
               className="mr-4 h-20 w-20 rounded-full object-cover shadow"
               alt="pic-from-tour"
               crossOrigin="anonymous"

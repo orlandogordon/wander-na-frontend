@@ -15,7 +15,7 @@ const GuideCard = ({ userObj }: GuideCardProps) => {
   return (
     <div className="flex justify-start">
       <img
-        src={`http://localhost:3500/img/users/${url}`}
+        src={`https://wander-api-bl56.onrender.com/img/users/${url}`}
         className=" mr-4 h-28 w-28 rounded-full object-cover shadow"
         alt="profile-pic"
         crossOrigin="anonymous"

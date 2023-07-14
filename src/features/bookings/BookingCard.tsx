@@ -14,7 +14,7 @@ const BookingCard = ({ booking, tour }: Props) => {
         <div className="w-full pb-4 md:w-40 md:pb-8">
           <img
             className="w-full md:block"
-            src={`http://localhost:3500/img/tours/${tour.imageCover}`}
+            src={`https://wander-api-bl56.onrender.com/img/tours/${tour.imageCover}`}
             alt="dress"
             crossOrigin="anonymous"
           />
