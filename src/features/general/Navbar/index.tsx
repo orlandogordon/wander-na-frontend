@@ -66,7 +66,7 @@ const Navbar = ({ isTopOfPage }: Props) => {
   useEffect(() => {
     if (isSuccessLogout) {
       navigate("/");
-      //navigate(0);
+      navigate(0);
     }
   }, [isSuccessLogout, navigate]);
 
@@ -180,7 +180,7 @@ const Navbar = ({ isTopOfPage }: Props) => {
 
   useEffect(() => {
     sendCheckLogin("");
-  }, [isMenuToggled]);
+  }, []);
 
   return (
     <nav>
