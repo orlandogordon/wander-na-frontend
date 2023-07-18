@@ -180,7 +180,7 @@ const Navbar = ({ isTopOfPage }: Props) => {
 
   useEffect(() => {
     sendCheckLogin("");
-  }, []);
+  }, [isMenuToggled]);
 
   return (
     <nav>
