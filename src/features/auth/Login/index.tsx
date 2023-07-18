@@ -35,12 +35,13 @@ const Login = (props: Props) => {
     e.preventDefault();
     try {
       const data = await login({ email, password }).unwrap();
-      const { token: accessToken } = data;
-      dispatch(setCredentials({ accessToken }));
+      console.log(data);
+      //const { token: accessToken } = data;
+      //dispatch(setCredentials({ accessToken }));
       setEmail("");
       setPassword("");
       navigate("/");
-      navigate(0);
+      //navigate(0);
     } catch (err: any) {
       if (!err.status) {
         setErrMsg("No Server Response");
