@@ -54,7 +54,7 @@ const SignUp = (props: Props) => {
       setPassword("");
       setRole("user");
       navigate("/");
-      //navigate(0);
+      navigate(0);
     }
   }, [isSuccess, navigate]);
 

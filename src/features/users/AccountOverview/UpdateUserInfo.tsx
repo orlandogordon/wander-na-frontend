@@ -44,7 +44,6 @@ const UpdateUserInfo = ({ user }: Props) => {
   // Set up form variables and hadleSubmit functions
   const onPhotoChanged = (e: any) => {
     setPhoto(e.target.files[0]);
-    console.log(photo);
   };
   const onNameChanged = (e: any) => setName(e.target.value);
   const onEmailChanged = (e: any) => setEmail(e.target.value);
