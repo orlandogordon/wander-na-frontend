@@ -40,7 +40,7 @@ const Login = (props: Props) => {
       setEmail("");
       setPassword("");
       navigate("/");
-      //navigate(0);
+      navigate(0);
     } catch (err: any) {
       if (!err.status) {
         setErrMsg("No Server Response");
