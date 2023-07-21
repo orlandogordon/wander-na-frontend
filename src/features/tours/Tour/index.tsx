@@ -21,6 +21,7 @@ import { start } from "repl";
 import Loading from "../../../shared/Loading";
 import { selectLoginStatus, selectCurrentUserId } from "../../auth/authSlice";
 import MyReview from "../../reviews/MyReview";
+import LoadingPage from "../../../shared/LoadingPage";
 
 type Props = {};
 
@@ -80,8 +81,8 @@ const Tour = (props: Props) => {
   let userReviewContent;
   let startDate: string;
 
-  if (tourIsLoading) tourContent = <Loading />;
-  if (reviewsIsLoading) reviewsContent = <Loading />;
+  if (tourIsLoading) tourContent = <LoadingPage />;
+  if (reviewsIsLoading) reviewsContent = null;
 
   if (tourIsError) {
     console.log(tourError);
@@ -212,6 +213,7 @@ const Tour = (props: Props) => {
       </div>
     );
   }
+
   return (
     <motion.div
       className="body-font min-h-full overflow-hidden bg-white text-gray-700"
@@ -224,20 +226,18 @@ const Tour = (props: Props) => {
         visible: { opacity: 1, y: 0 },
       }}
     >
-      {/* <section className="body-font min-h-full overflow-hidden bg-white text-gray-700"> */}
       {tourContent}
       <div className="mx-auto flex max-w-7xl  items-center justify-center px-4 py-12 md:px-6 ">
         <div className="flex w-full flex-col items-start justify-start space-y-8">
           <div className="flex items-start justify-start">
             <p className="text-3xl font-semibold leading-7 text-gray-800 lg:text-4xl lg:leading-9">
-              Reviews
+              {reviewsIsLoading ? "" : "Reviews"}
             </p>
           </div>
-          {userReviewContent}
+          {reviewsIsLoading ? "" : userReviewContent}
           {reviewsContent}
         </div>
       </div>
-      {/* </section> */}
     </motion.div>
   );
 };

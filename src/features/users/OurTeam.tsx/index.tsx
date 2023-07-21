@@ -1,9 +1,8 @@
 import React from "react";
 import { useGetUsersQuery } from "../usersApiSlice";
 import { UserObject } from "../../../shared/types";
-import PulseLoader from "react-spinners/PulseLoader";
 import GuideCard from "./GuideCard";
-import BenefitsPageGraphic from "../../assets/BenefitsPageGraphic.png";
+import LoadingPage from "../../../shared/LoadingPage";
 
 type Props = {};
 
@@ -13,7 +12,7 @@ const OurTeam = () => {
 
   let content;
 
-  if (isLoading) content = <PulseLoader color={"#51883d"} />;
+  if (isLoading) content = <LoadingPage />;
 
   if (isError) {
     content = <p className="errmsg">Oops! Failed to load guides..</p>;
@@ -21,15 +20,16 @@ const OurTeam = () => {
 
   if (isSuccess) {
     const users = data.data.data;
-
     content = users?.length ? (
       users.map((user: any) => <GuideCard key={`${user._id}`} userObj={user} />)
     ) : (
-      <div className="text-red">No data loaded from fetch...</div>
+      <div className="text-red">Error loading guide list. Please refresh.</div>
     );
   }
 
-  return (
+  return isLoading ? (
+    <LoadingPage />
+  ) : (
     <div className="lg:max-w-screen-xl mx-auto min-h-full px-4 py-36 sm:max-w-xl md:max-w-full md:px-24 lg:px-8">
       <div className="mb-10 max-w-xl sm:text-center md:mx-auto md:mb-12 lg:max-w-2xl">
         <div>
@@ -44,11 +44,12 @@ const OurTeam = () => {
           our talented team of professionals
         </h2>
         <p className="text-base text-gray-700 md:text-lg">
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-          accusantium doloremque rem aperiam, eaque ipsa quae.
+          Meet our expert team of guides, the passionate navigators who will
+          take you on unforgettable journeys across North America.
         </p>
       </div>
-      <div className=" row-gap-8 sm:row-gap-10 mx-auto grid gap-x-10 gap-y-10 sm:grid-cols-2 md:grid-cols-4 lg:max-w-screen-lg">
+
+      <div className=" row-gap-8 sm:row-gap-10 mx-auto grid grid-cols-2 gap-x-10 gap-y-10 md:grid-cols-4 lg:max-w-screen-lg lg:grid-cols-4">
         {content}
       </div>
     </div>

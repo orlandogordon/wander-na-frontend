@@ -6,7 +6,7 @@ import { useGetToursQuery } from "../toursApiSlice";
 import Filter from "./Filter";
 import { useSearchParams } from "react-router-dom";
 import Pagination from "./Pagination";
-import Loading from "../../../shared/Loading";
+import LoadingPage from "../../../shared/LoadingPage";
 
 type Props = {};
 
@@ -20,14 +20,12 @@ const AllTours = ({}: Props) => {
   );
 
   let tours: any = [];
-  let content;
-
-  if (isLoading) content = <Loading />;
+  let tourContent;
 
   if (isError) {
     console.log(error);
     if ("data" in error) {
-      content = (
+      tourContent = (
         <p className=" text-red-600">
           Unable to fetch tour data. Please try refreshing and contact us if
           this error persists.
@@ -40,26 +38,32 @@ const AllTours = ({}: Props) => {
     tours = data.data.data;
   }
 
-  const tourContent = useMemo(() => {
-    const firstPageIndex = (currentPage - 1) * PageSize;
-    const lastPageIndex = firstPageIndex + PageSize;
-    const currentToursData = tours.slice(firstPageIndex, lastPageIndex);
-    window.scrollTo(0, 0);
-    return tours?.length ? (
-      currentToursData.map((tour: TourObj) => (
-        <TourCard key={`${tour.id}`} tourObj={tour} />
-      ))
-    ) : (
-      <div>No tours found under the given search paramerters...</div>
-    );
+  tourContent = useMemo(() => {
+    if (isSuccess && !isLoading) {
+      const firstPageIndex = (currentPage - 1) * PageSize;
+      const lastPageIndex = firstPageIndex + PageSize;
+      const currentToursData = tours.slice(firstPageIndex, lastPageIndex);
+      window.scrollTo(0, 0);
+      return tours?.length ? (
+        currentToursData.map((tour: TourObj) => (
+          <TourCard key={`${tour.id}`} tourObj={tour} />
+        ))
+      ) : (
+        <div>No tours found under the given search paramerters...</div>
+      );
+    }
   }, [currentPage, tours]);
 
   return (
     <div className="mt-12 min-h-full bg-slate-100 text-black">
       <Filter />
-      <div className="mx-auto grid w-11/12 max-w-[150rem] gap-20 sm:grid-cols-1 sm:py-4 md:grid-cols-2 md:py-0 lg:grid-cols-3 lg:py-4">
-        {tourContent}
-      </div>
+      {isLoading ? (
+        <LoadingPage />
+      ) : (
+        <div className="mx-auto grid w-11/12 max-w-[150rem] gap-20 sm:grid-cols-1 sm:py-4 md:grid-cols-2 md:py-0 lg:grid-cols-3 lg:py-4">
+          {tourContent}
+        </div>
+      )}
       <Pagination
         currentPage={currentPage}
         totalCount={tours.length}
