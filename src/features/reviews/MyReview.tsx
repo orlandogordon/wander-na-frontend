@@ -1,20 +1,16 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import {
   StarIcon as StarIconOutline,
   PencilSquareIcon,
   TrashIcon,
   CheckIcon,
   XMarkIcon,
-  PlusSmallIcon,
-  MinusSmallIcon,
 } from "@heroicons/react/24/outline";
-import { StarIcon } from "@heroicons/react/24/solid";
 import {
   useCreateReviewMutation,
   useDeleteReviewMutation,
   useUpdateReviewMutation,
 } from "./reviewsApiSlice";
-import ActionButton from "../../shared/ActionButton";
 import { useNavigate } from "react-router-dom";
 
 type Props = {
@@ -190,12 +186,6 @@ const MyReview = ({ reviewData }: Props) => {
     <div className="flex w-full flex-col items-start justify-start bg-gray-50 p-8">
       <p className={errClass}>{errMsg}</p>
       <div className="flex w-full flex-row justify-between">
-        {/* <div className="flex flex-row items-start justify-between">
-        <p className="text-xl font-medium leading-normal text-gray-800 md:text-2xl">
-        {" "}
-        {reviewData.title ? reviewData.title : ""}
-        </p>
-      </div> */}
         <span className="mt-2 flex  md:mt-0">{starsContent}</span>
         <span className="flex gap-5">
           {eidtReview ? (

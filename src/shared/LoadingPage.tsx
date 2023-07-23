@@ -8,7 +8,7 @@ const LoadingPage = (props: Props) => {
   const [showMessage, setShowMessage] = useState(false);
 
   useEffect(() => {
-    setTimeout(() => setShowMessage(true), 50000);
+    setTimeout(() => setShowMessage(true), 8000);
   }, []);
 
   const message = (
@@ -37,7 +37,7 @@ const LoadingPage = (props: Props) => {
     </motion.div>
   );
   return (
-    <div className=" mt-48 flex h-full w-full flex-col">
+    <div className=" my-48 flex h-full w-full flex-col">
       <FadeLoader className="mx-auto" />
       {showMessage ? message : null}
     </div>

@@ -7,7 +7,7 @@ import {
   StarIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
-import { createSearchParams, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { SearchParam } from "../../../shared/types";
 
 type Props = {};

@@ -1,4 +1,3 @@
-import React from "react";
 import { NavLink } from "react-router-dom";
 import { ArrowLongRightIcon } from "@heroicons/react/24/outline";
 import { motion } from "framer-motion";

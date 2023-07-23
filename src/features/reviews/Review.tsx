@@ -1,4 +1,3 @@
-import React from "react";
 import { StarIcon as StarIconOutline } from "@heroicons/react/24/outline";
 import { StarIcon } from "@heroicons/react/24/solid";
 
@@ -22,12 +21,6 @@ const Review = ({ reviewData }: Props) => {
   return (
     <div className="flex w-full flex-col items-start justify-start bg-gray-50 p-8">
       <div className="flex w-full flex-col justify-between md:flex-row">
-        {/* <div className="flex flex-row items-start justify-between">
-          <p className="text-xl font-medium leading-normal text-gray-800 md:text-2xl">
-            {" "}
-            {reviewData.title ? reviewData.title : ""}
-          </p>
-        </div> */}
         <span className="mt-2 flex  md:mt-0">{starsContent}</span>
       </div>
       <div className="block md:block">

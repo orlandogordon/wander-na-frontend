@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState } from "react";
 import { PencilSquareIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useUpdatePasswordMutation } from "../usersApiSlice";
 import { PulseLoader } from "react-spinners";
@@ -116,7 +116,7 @@ const UpdatePassword = (props: Props) => {
                       id="current-password"
                       name="passwordCurrent"
                       required
-                      className="rounded border border-gray-300 bg-transparent py-3 pl-3 text-sm text-gray-500 placeholder-gray-500 shadow-sm focus:border-indigo-700 focus:outline-none  "
+                      className="rounded border border-gray-300 bg-transparent py-3 pl-3 text-sm text-gray-800 placeholder-gray-600 shadow-sm focus:border-slate-700 focus:outline-none  "
                       onChange={onPasswordCurrentChanged}
                     />
                   </div>
@@ -132,7 +132,7 @@ const UpdatePassword = (props: Props) => {
                       id="new-password"
                       name="newPassword"
                       required
-                      className={`rounded border border-gray-300 bg-transparent py-3 pl-3 text-sm text-gray-500 placeholder-gray-500 shadow-sm focus:border-indigo-700 focus:outline-none ${validPasswordClass}  `}
+                      className={`rounded border border-gray-300 bg-transparent py-3 pl-3 text-sm text-gray-800 placeholder-gray-600 shadow-sm focus:border-slate-700 focus:outline-none ${validPasswordClass}  `}
                       onChange={onPasswordChanged}
                     />
                   </div>
@@ -148,7 +148,7 @@ const UpdatePassword = (props: Props) => {
                       id="confirm-new-password"
                       name="confirmNewPassword"
                       required
-                      className={`rounded border border-gray-300 bg-transparent py-3 pl-3 text-sm text-gray-500 placeholder-gray-500 shadow-sm focus:border-indigo-700 focus:outline-none ${validPasswordConfirmClass}  `}
+                      className={`rounded border border-gray-300 bg-transparent py-3 pl-3 text-sm text-gray-800 placeholder-gray-600 shadow-sm focus:border-slate-700 focus:outline-none ${validPasswordConfirmClass}  `}
                       onChange={onPasswordConfirmChanged}
                     />
                   </div>
@@ -161,7 +161,7 @@ const UpdatePassword = (props: Props) => {
               <div className="xl:w-full container mx-auto w-11/12">
                 <div className="flex w-full justify-end bg-white py-4  sm:px-0">
                   <button
-                    className="rounded bg-indigo-700 px-8 py-2 text-sm text-white transition duration-150 ease-in-out hover:bg-indigo-600 focus:outline-none"
+                    className="rounded bg-slate-600 px-8 py-2 text-sm text-white transition duration-150 ease-in-out hover:bg-slate-800 focus:outline-none"
                     type="submit"
                     onClick={onSubmitFormClicked}
                   >

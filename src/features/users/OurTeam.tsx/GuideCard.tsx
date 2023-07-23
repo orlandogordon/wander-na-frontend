@@ -1,17 +1,10 @@
-import React, { useState } from "react";
-
 type GuideCardProps = {
   userObj: any;
 };
 
 const GuideCard = ({ userObj }: GuideCardProps) => {
   let url: string = userObj.photo;
-  const role =
-    userObj.role === "lead-guide"
-      ? "Lead Guide"
-      : userObj.role === "guide"
-      ? "Guide"
-      : userObj.role;
+
   return (
     <div className="mx-auto flex flex-col">
       <img

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Route, Routes, Navigate, useSearchParams } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Layout from "./features/general/Layout";
 import Home from "./features/general/Home";
 import AllTours from "./features/tours/AllTours";

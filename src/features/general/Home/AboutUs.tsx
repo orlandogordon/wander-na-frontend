@@ -1,4 +1,3 @@
-import { SelectedPage } from "../../../shared/types";
 import { MapIcon, UserCircleIcon, TrophyIcon } from "@heroicons/react/24/solid";
 import { motion } from "framer-motion";
 import { BenefitType } from "../../../shared/types";

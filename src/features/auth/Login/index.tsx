@@ -1,11 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate, Link, NavLink } from "react-router-dom";
-
 import { useDispatch } from "react-redux";
 import { setCredentials } from "../authSlice";
-import { useLoginMutation } from "../authApiSlice";
-import usePersist from "../../../hooks/usePersist";
-
+import { useLoginMutation, useCheckLoginMutation } from "../authApiSlice";
 import Logo from "../../../assets/LogoGreenLarge.png";
 import { AtSymbolIcon, LockClosedIcon } from "@heroicons/react/24/solid";
 
@@ -21,7 +18,19 @@ const Login = (props: Props) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const [login, { isLoading }] = useLoginMutation();
+  const [login, { data, isLoading, isSuccess, isError, error }] =
+    useLoginMutation();
+
+  const [
+    sendCheckLogin,
+    {
+      data: dataCheckLogin,
+      isLoading: isLoadingCheckLogin,
+      isSuccess: isSuccessCheckLogin,
+      isError: isErrorCheckLogin,
+      error: errorCheckLogin,
+    },
+  ] = useCheckLoginMutation();
 
   useEffect(() => {
     if (userRef.current) userRef.current.focus();
@@ -36,11 +45,20 @@ const Login = (props: Props) => {
     try {
       const data = await login({ email, password }).unwrap();
       const { token: accessToken } = data;
+      console.log(data);
       dispatch(setCredentials({ accessToken }));
-      setEmail("");
-      setPassword("");
-      navigate("/");
-      navigate(0);
+
+      const res = await sendCheckLogin("");
+      if ("data" in res && res.data.data.loginStatus === true) {
+        setEmail("");
+        setPassword("");
+        navigate("/");
+        navigate(0);
+      } else {
+        setErrMsg(
+          "Unable to complete login request. Please note that third party cookies are required while we are in beta. Please check your browser's settings to confirm third party cookies are allowed."
+        );
+      }
     } catch (err: any) {
       if (!err.status) {
         setErrMsg("No Server Response");
@@ -58,13 +76,15 @@ const Login = (props: Props) => {
   const handleUserInput = (e: any) => setEmail(e.target.value);
   const handlePwdInput = (e: any) => setPassword(e.target.value);
 
-  const errClass = errMsg ? "inline-block text-red-500 p-1 mb-2" : "hidden";
+  const errClass = errMsg
+    ? "inline-block text-red-600 p-1 mb-2 bg-red-100 min-w-full rounded-md"
+    : "hidden";
 
   if (isLoading)
     return <p className="h-full align-middle text-4xl">Loading...</p>;
 
   return (
-    <div className="flex h-screen">
+    <div className="roud flex h-screen">
       <div
         className=" hidden w-full items-center justify-around bg-signup-background
           lg:flex lg:w-1/2"

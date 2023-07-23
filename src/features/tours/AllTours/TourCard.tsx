@@ -1,5 +1,3 @@
-import { SelectedPage } from "../../../shared/types";
-import { motion } from "framer-motion";
 import {
   MapPinIcon,
   UserIcon,
@@ -7,25 +5,14 @@ import {
   CalendarIcon,
 } from "@heroicons/react/24/solid";
 import ActionButton from "../../../shared/ActionButton";
-import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { selectTourById } from "../toursApiSlice";
 import { Months } from "../../../shared/types";
 import { TourObj } from "../../../shared/types";
-
-const childVariant = {
-  hidden: { opacity: 0, scale: 0.9 },
-  visible: { opacity: 1, scale: 1 },
-};
 
 type Props = {
   tourObj: TourObj;
 };
 
 const TourCard = ({ tourObj }: Props) => {
-  const navigate = useNavigate();
-  //const tour = useSelector((state) => selectTourById(state, tourObj.id));
-  const handleDetails = () => navigate(`/tours/${tourObj.id}`);
   return (
     <div
       id="card"

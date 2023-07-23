@@ -2,23 +2,17 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { NavLink, useNavigate, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { selectTourById } from "../../tours/toursApiSlice";
 import {
   StarIcon,
   ChevronDownIcon,
   HeartIcon,
 } from "@heroicons/react/24/solid";
-import { StarIcon as StarIconOutline } from "@heroicons/react/24/outline";
-import TourImage1 from "../assets/TourImage1.png";
 import { useGetTourQuery } from "../../tours/toursApiSlice";
 import { useGetReviewsQuery } from "../../reviews/reviewsApiSlice";
 import { useLazyGetCheckoutSessionQuery } from "../../bookings/bookingsApiSlice";
 import { TourObj } from "../../../shared/types";
 import Review from "../../reviews/Review";
 import { loadStripe } from "@stripe/stripe-js";
-import { Elements } from "@stripe/react-stripe-js";
-import { start } from "repl";
-import Loading from "../../../shared/Loading";
 import { selectLoginStatus, selectCurrentUserId } from "../../auth/authSlice";
 import MyReview from "../../reviews/MyReview";
 import LoadingPage from "../../../shared/LoadingPage";
@@ -167,9 +161,6 @@ const Tour = (props: Props) => {
               >
                 Book Now
               </button>
-              {/* <button className="ml-4 inline-flex h-10 w-10 items-center justify-center rounded-full border-0 bg-gray-200 p-0 text-gray-500">
-                <HeartIcon className="h-5 w-5" />
-              </button> */}
             </div>
           </div>
         </div>

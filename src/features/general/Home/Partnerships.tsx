@@ -1,4 +1,3 @@
-import React from "react";
 import OakleyLogo from "../../../assets/OaklryLogo.png";
 import ColumbiaLogo from "../../../assets/ColumbiaLogo.png";
 import GymsharkLogo from "../../../assets/GymsharkLogo.png";

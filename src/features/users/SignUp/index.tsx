@@ -1,4 +1,3 @@
-import React from "react";
 import { useState, useEffect } from "react";
 import { useAddNewUserMutation } from "../usersApiSlice";
 import { NavLink, useNavigate } from "react-router-dom";

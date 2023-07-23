@@ -1,10 +1,9 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import {
   Bars3Icon,
   XMarkIcon,
   UserCircleIcon,
 } from "@heroicons/react/24/solid";
-import Logo from "../../../assets/LogoGreenMedium.png";
 import LogoSmall from "../../../assets/LogoGreenSmall.png";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import useMediaQuery from "../../../hooks/useMediaQuery";
@@ -17,7 +16,6 @@ import useAuth from "../../../hooks/useAuth";
 import { selectCurrentToken, selectLoginStatus } from "../../auth/authSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { PulseLoader } from "react-spinners";
-import { current } from "@reduxjs/toolkit";
 
 type Props = {
   isTopOfPage: boolean;

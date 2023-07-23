@@ -1,4 +1,3 @@
-import React from "react";
 import { usePagination, DOTS } from "../../../hooks/usePagination";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
 

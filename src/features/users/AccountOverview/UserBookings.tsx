@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useGetMyBookingsQuery } from "../../bookings/bookingsApiSlice";
 import BookingCard from "../../bookings/BookingCard";
 import Loading from "../../../shared/Loading";

@@ -1,11 +1,5 @@
-import React, { useRef, useEffect, useState } from "react";
-import {
-  PencilSquareIcon,
-  EnvelopeIcon,
-  XMarkIcon,
-} from "@heroicons/react/24/outline";
+import React, { useRef, useState } from "react";
 import { useUpdateUserMutation } from "../usersApiSlice";
-import { PulseLoader } from "react-spinners";
 import { useNavigate } from "react-router-dom";
 
 type Props = {
@@ -79,12 +73,12 @@ const UpdateUserInfo = ({ user }: Props) => {
     <>
       <button
         onClick={onEditFormClicked}
-        className="mr-4 rounded bg-gray-200 px-6 py-2 text-xs text-indigo-600 transition duration-150 ease-in-out hover:bg-gray-300 focus:outline-none "
+        className="mr-4 rounded bg-gray-200 px-6 py-2 text-xs text-slate-800 transition duration-150 ease-in-out hover:bg-gray-300 focus:outline-none "
       >
         Cancel
       </button>
       <button
-        className="rounded bg-indigo-700 px-8 py-2 text-sm text-white transition duration-150 ease-in-out hover:bg-indigo-600 focus:outline-none"
+        className="rounded bg-slate-600 px-8 py-2 text-sm text-white transition duration-150 ease-in-out hover:bg-slate-800 focus:outline-none"
         type="submit"
         onClick={onSaveFormClicked}
       >
@@ -93,7 +87,7 @@ const UpdateUserInfo = ({ user }: Props) => {
     </>
   ) : (
     <button
-      className="rounded bg-indigo-700 px-8 py-2 text-sm text-white transition duration-150 ease-in-out hover:bg-indigo-600 focus:outline-none"
+      className="rounded bg-slate-600 px-8 py-2 text-sm text-white transition duration-150 ease-in-out hover:bg-slate-800 focus:outline-none"
       type="submit"
       onClick={onEditFormClicked}
     >
@@ -112,7 +106,7 @@ const UpdateUserInfo = ({ user }: Props) => {
           id="name"
           name="name"
           required
-          className="mr-2 w-full rounded border border-gray-300 bg-transparent py-3 pl-3 text-sm text-gray-800 placeholder-gray-800 shadow-sm focus:border-indigo-700 focus:outline-none  "
+          className="mr-2 w-full rounded border border-gray-300 bg-transparent py-3 pl-3 text-sm text-gray-800 placeholder-gray-800 shadow-sm focus:border-slate-700 focus:outline-none  "
           onChange={onNameChanged}
         />
       </div>
@@ -141,7 +135,7 @@ const UpdateUserInfo = ({ user }: Props) => {
           id="email"
           name="email"
           required
-          className="mr-2 w-full rounded border border-gray-300 bg-transparent py-3 pl-3 text-sm text-gray-800 placeholder-gray-800 shadow-sm focus:border-indigo-700 focus:outline-none   "
+          className="mr-2 w-full rounded border border-gray-300 bg-transparent py-3 pl-3 text-sm text-gray-800 placeholder-gray-800 shadow-sm focus:border-slate-700 focus:outline-none   "
           onChange={onEmailChanged}
         />
       </div>
@@ -211,7 +205,7 @@ const UpdateUserInfo = ({ user }: Props) => {
                     id="email-confirm"
                     name="emailConfirm"
                     required
-                    className={`mr-2 w-full rounded border border-gray-300 bg-transparent py-3 pl-3 text-sm text-gray-800 placeholder-gray-800 shadow-sm focus:border-indigo-700 focus:outline-none `}
+                    className={`mr-2 w-full rounded border border-gray-300 bg-transparent py-3 pl-3 text-sm text-gray-800 placeholder-gray-800 shadow-sm focus:border-slate-700 focus:outline-none `}
                     onChange={onEmailConfirmChanged}
                     disabled={!editForm}
                   />
