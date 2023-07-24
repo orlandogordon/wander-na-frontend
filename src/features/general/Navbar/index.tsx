@@ -121,6 +121,7 @@ const Navbar = ({ isTopOfPage }: Props) => {
           <>
             <NavLink
               to="manage-account"
+              onClick={() => setIsMenuToggled(!isMenuToggled)}
               className={({ isActive }) => {
                 return `${
                   isActive ? "text-primary-500" : ""
@@ -130,7 +131,8 @@ const Navbar = ({ isTopOfPage }: Props) => {
               Manage Account
             </NavLink>
             <NavLink
-              to="logout"
+              to="/"
+              onClick={logoutAction}
               className={({ isActive }) => {
                 return `${
                   isActive ? "text-primary-500" : ""
@@ -144,6 +146,7 @@ const Navbar = ({ isTopOfPage }: Props) => {
           <>
             <NavLink
               to="login"
+              onClick={() => setIsMenuToggled(false)}
               className={({ isActive }) => {
                 return `${
                   isActive ? "text-primary-500" : ""
@@ -154,6 +157,7 @@ const Navbar = ({ isTopOfPage }: Props) => {
             </NavLink>
             <NavLink
               to="signup"
+              onClick={() => setIsMenuToggled(false)}
               className={({ isActive }) => {
                 return `${
                   isActive ? "text-primary-500" : ""
